@@ -18,6 +18,7 @@ pipeline {
       steps {
         bat 'cat README.md'
       }
+    } 	
   }
   post {
     always {
