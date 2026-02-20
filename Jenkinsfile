@@ -1,14 +1,23 @@
+
 pipeline {
-  agent {label 'Agent1'}
+//  agent {label 'Agent1'}
+  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
     stage('Build') {
       steps {
-        sh './gradlew clean check --no-daemon'
+        bat 'echo "Hello world"'
       }
     }
+    stage ('cat README') {
+      when {
+        branch {fix-*}
+      }
+      steps {
+        bat 'cat README.md'
+      }
   }
   post {
     always {
@@ -18,4 +27,4 @@ pipeline {
         )
     }
   }
-
+}
