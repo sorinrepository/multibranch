@@ -11,12 +11,12 @@ pipeline {
         bat 'echo "Hello world"'
       }
     }
-    stage ('cat README') {
+    stage ('echo README') {
       when {
         branch "fix-*"
       }
       steps {
-        bat 'cat README.md'
+        bat 'echo README.md'
       }
     } 	
   }
